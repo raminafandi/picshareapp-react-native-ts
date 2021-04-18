@@ -1,6 +1,8 @@
 import React from 'react';
-import {Pressable, FlatList, StyleSheet, Text, Image, View} from 'react-native';
+import {FlatList, StyleSheet, Image, View} from 'react-native';
 import {windowWidth, windowHeight} from '../constants/Layout';
+
+import Profile from '../components/Profile';
 
 import data from '../constants/data.json';
 
@@ -11,15 +13,13 @@ const Home = ({navigation}: any) => {
         source={{uri: item.images[0]}}
         style={[StyleSheet.absoluteFillObject, styles.imgContainer]}
       />
-      <Pressable
+      <Profile
+        style={styles.profileContainer}
+        item={item}
         onPress={() => {
-          console.log('Pressed');
           navigation.navigate('Profile');
         }}
-        style={styles.profileContainer}>
-        <Text>{item.id}</Text>
-        <Text>{item.first_name}</Text>
-      </Pressable>
+      />
     </View>
   );
 
@@ -28,6 +28,7 @@ const Home = ({navigation}: any) => {
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
+        scrollEventThrottle={16}
         pagingEnabled={true}
         data={data}
         renderItem={renderItem}
@@ -41,24 +42,15 @@ export default Home;
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    backgroundColor: 'white',
+    flex: 1,
+  },
+  renderContainer: {
+    width: windowWidth,
+    height: windowHeight,
   },
   profileContainer: {
     position: 'absolute',
-    bottom: 120,
-    width: windowWidth - 26,
-    marginHorizontal: 13,
-    height: 160,
-    backgroundColor: 'white',
-    padding: 20,
-    // alignItems: 'center',
-    // justifyContent: 'center',
-  },
-  renderContainer: {
-    flex: 1,
-    width: windowWidth,
-    height: windowHeight,
+    bottom: 150,
   },
   textContainer: {
     width: 400,
