@@ -10,21 +10,25 @@ import { SharedElement } from "react-navigation-shared-element";
 const Home = ({ navigation }: any) => {
   const renderItem = ({ item }: any) => (
     <View style={styles.renderContainer}>
-      <SharedElement id={1}>
+      <SharedElement id={`item.${item.id}.image`}>
         <Image
           source={{ uri: item.images[0] }}
           style={[StyleSheet.absoluteFillObject, styles.imgContainer]}
         />
       </SharedElement>
-      <Profile
+      <SharedElement
         style={styles.profileContainer}
-        item={item}
-        onPress={() => {
-          navigation.navigate("Profile", {
-            item: item,
-          });
-        }}
-      />
+        id={`item.${item.id}.user`}
+      >
+        <Profile
+          item={item}
+          onPress={() => {
+            navigation.navigate("Profile", {
+              item: item,
+            });
+          }}
+        />
+      </SharedElement>
     </View>
   );
 
@@ -37,7 +41,7 @@ const Home = ({ navigation }: any) => {
         pagingEnabled={true}
         data={data}
         renderItem={renderItem}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
       />
     </View>
   );
