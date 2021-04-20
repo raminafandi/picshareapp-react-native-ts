@@ -3,19 +3,20 @@ import { StyleSheet, Text, Image, View } from "react-native";
 import { SharedElement } from "react-navigation-shared-element";
 import Profile from "../components/Profile";
 import { windowHeight, windowWidth } from "../constants/Layout";
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView } from "react-native-gesture-handler";
 
-import MasonryList from '../components/MasonryList';
+import MasonryList from "../components/MasonryList";
 
 const ProfileScreen = ({ navigation, route }: any) => {
   const { item } = route.params;
   return (
-    <ScrollView contentContainerStyle={styles.container} nestedScrollEnabled>
+    <ScrollView contentContainerStyle={styles.container}>
       <SharedElement id={`item.${item.id}.image`}>
         <Image
           source={{ uri: item.images[0] }}
           style={[styles.imgContainer]}
           resizeMode={"cover"}
+          resizeMethod={"resize"}
         />
       </SharedElement>
       <SharedElement id={`item.${item.id}.user`}>
@@ -27,7 +28,7 @@ const ProfileScreen = ({ navigation, route }: any) => {
           }}
         />
       </SharedElement>
-      <MasonryList style={styles.masonryList}  items={item.images}/>
+      <MasonryList style={styles.masonryList} items={item.images} />
     </ScrollView>
   );
 };
@@ -54,16 +55,16 @@ const styles = StyleSheet.create({
   container: {
     // flex: 1,
 
-    backgroundColor:'black'
+    backgroundColor: "black",
   },
   profileContainer: {
     position: "absolute",
     top: -90,
   },
   imgContainer: {
-    width: windowWidth,
-    height: windowHeight/2,
-    // position:'absolute',
+    // width: "100%",
+    height: windowHeight / 3,
+    // position: "absolute",
   },
-  masonryList:{marginTop:90}
+  masonryList: { marginTop: 90 },
 });
