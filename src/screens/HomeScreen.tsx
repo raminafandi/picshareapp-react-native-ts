@@ -14,6 +14,7 @@ const Home = ({ navigation }: any) => {
         <Image
           source={{ uri: item.images[0] }}
           style={[StyleSheet.absoluteFillObject, styles.imgContainer]}
+          resizeMode={"cover"}
         />
       </SharedElement>
       <SharedElement
@@ -49,7 +50,7 @@ const Home = ({ navigation }: any) => {
 
 export default Home;
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({ 
   container: {
     flex: 1,
   },
@@ -65,7 +66,8 @@ const styles = StyleSheet.create({
     width: 400,
   },
   imgContainer: {
-    width: windowWidth,
+    // width: windowWidth,
     height: windowHeight,
+    // position:'absolute'
   },
 });
