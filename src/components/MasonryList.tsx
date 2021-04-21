@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   StyleSheet,
   View,
@@ -8,12 +8,12 @@ import {
   ScrollView,
   ScrollViewProps,
   FlatListProps,
-} from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+} from "react-native";
+import { FlatList } from "react-native-gesture-handler";
 
-import * as Animatable from 'react-native-animatable';
+import * as Animatable from "react-native-animatable";
 
-import { windowWidth, windowHeight } from '../constants/Layout';
+import { windowWidth, windowHeight } from "../constants/Layout";
 
 type MasonryListProps = FlatListProps & {
   items?: any;
@@ -22,7 +22,13 @@ type MasonryListProps = FlatListProps & {
 
 const MasonryList = ({ items, style, ...props }: MasonryListProps) => {
   return (
-    <Animatable.View animation="fadeInUp" easing="ease-in-out" duration={800} delay={300} useNativeDriver>
+    <Animatable.View
+      animation="fadeInUp"
+      easing="ease-in-out"
+      duration={800}
+      delay={300}
+      useNativeDriver
+    >
       <FlatList
         nestedScrollEnabled
         numColumns={2}
@@ -32,11 +38,9 @@ const MasonryList = ({ items, style, ...props }: MasonryListProps) => {
           <Image key={index} style={styles.img} source={{ uri: item }} />
         )}
         {...props}
-
-
       />
     </Animatable.View>
-  )
+  );
 };
 
 export default MasonryList;
@@ -50,7 +54,6 @@ const styles = StyleSheet.create({
     width: windowWidth / 2 - 10,
     height: 300,
     marginHorizontal: 5,
-    marginVertical: 5
-  }
-
+    marginVertical: 5,
+  },
 });

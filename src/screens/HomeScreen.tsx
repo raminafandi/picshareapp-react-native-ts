@@ -8,7 +8,7 @@ import {
   Pressable,
 } from "react-native";
 import { windowWidth, windowHeight } from "../constants/Layout";
-import { Entypo } from '@expo/vector-icons';
+import { Entypo } from "@expo/vector-icons";
 
 import Profile from "../components/Profile";
 import Info from "../components/Info";
@@ -28,20 +28,38 @@ const Home = ({ navigation }: any) => {
       </SharedElement>
       <Pressable
         onPressIn={() => setHidden(false)}
-        onPressOut={() => setTimeout(() => setHidden(true), 400)}
-        style={{marginTop:300}}
-        >
-        
+        onPressOut={() => setTimeout(() => setHidden(true), 300)}
+        style={styles.pressable}
+      >
         {hidden ? (
           <View style={styles.hidden}>
             <Entypo name="info" size={17} color="white" />
           </View>
         ) : (
           <View style={styles.unHidden}>
-            <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, laboriosam repellat! Officiis porro commodi libero a cumque quo quam architecto voluptatem voluptatibus, consequatur soluta aliquam, animi saepe, aut minus sit.</Text>
+            <View style={styles.rowContainer}>
+              <View style={styles.blockContainer}>
+                <Text style={styles.title}>Shutter</Text>
+                <Text style={styles.value}>1/125 sec</Text>
+              </View>
+              <View style={styles.blockContainer}>
+                <Text style={styles.title}>ISO</Text>
+                <Text style={styles.value}>160</Text>
+              </View>
+            </View>
+            <View style={styles.rowContainer}>
+              <View style={styles.blockContainer}>
+                <Text style={styles.title}>Focal Length</Text>
+                <Text style={styles.value}>45.00mm</Text>
+              </View>
+              <View style={styles.blockContainer}>
+                <Text style={styles.title}>Aperture</Text>
+                <Text style={styles.value}>f/8.0</Text>
+              </View>
+            </View>
           </View>
         )}
-        </Pressable>
+      </Pressable>
       <SharedElement
         style={styles.profileContainer}
         id={`item.${item.id}.user`}
@@ -87,27 +105,49 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 120,
   },
+  pressable: {
+    width: 50,
+    marginTop: 270,
+  },
+  rowContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginHorizontal: 60,
+    marginVertical: 10,
+    // alignItems: "center",
+  },
+  blockContainer: {
+    // alignSelf: "flex-start",
+    width: windowWidth / 4.5,
+    alignSelf: "center",
+  },
+  title: {
+    color: "#787878",
+    fontSize: 12,
+  },
+  value: {
+    color: "white",
+    fontSize: 17,
+  },
   hidden: {
     width: 30,
     height: 30,
     borderRadius: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: "black",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgba(0,0,0,0.8)",
     // position: "absolute",
-    // marginTop: 300,
-    marginLeft: 20
+    marginTop: 30,
+    marginLeft: 20,
   },
   unHidden: {
-    // width: windowWidth-50,
-    height: 80,
+    width: windowWidth - 50,
+    height: 120,
     borderRadius: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: "black",
-    // position: "absolute",
-    // marginTop: 240,
-    marginLeft: 20
+    // alignItems: "center",
+    // justifyContent: "center",
+    backgroundColor: "rgba(0,0,0,0.8)",
+    marginLeft: 20,
   },
   textContainer: {
     width: 400,
