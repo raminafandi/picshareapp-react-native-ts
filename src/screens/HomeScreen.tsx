@@ -8,6 +8,7 @@ import {
   Pressable,
 } from "react-native";
 import { windowWidth, windowHeight } from "../constants/Layout";
+import { Entypo } from '@expo/vector-icons';
 
 import Profile from "../components/Profile";
 import Info from "../components/Info";
@@ -26,19 +27,21 @@ const Home = ({ navigation }: any) => {
         />
       </SharedElement>
       <Pressable
-        onLongPress={() => setHidden(false)}
-        onPressOut={() => setHidden(true)}
-      >
+        onPressIn={() => setHidden(false)}
+        onPressOut={() => setTimeout(() => setHidden(true), 400)}
+        style={{marginTop:300}}
+        >
+        
         {hidden ? (
           <View style={styles.hidden}>
-            <Text>i</Text>
+            <Entypo name="info" size={17} color="white" />
           </View>
         ) : (
           <View style={styles.unHidden}>
-            <Text>i</Text>
+            <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, laboriosam repellat! Officiis porro commodi libero a cumque quo quam architecto voluptatem voluptatibus, consequatur soluta aliquam, animi saepe, aut minus sit.</Text>
           </View>
         )}
-      </Pressable>
+        </Pressable>
       <SharedElement
         style={styles.profileContainer}
         id={`item.${item.id}.user`}
@@ -85,17 +88,26 @@ const styles = StyleSheet.create({
     bottom: 120,
   },
   hidden: {
-    width: 40,
-    height: 20,
-    backgroundColor: "yellow",
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "black",
     // position: "absolute",
-    marginTop: 100,
+    // marginTop: 300,
+    marginLeft: 20
   },
   unHidden: {
-    width: windowWidth,
-    height: 40,
-    marginTop: 80,
-    backgroundColor: "yellow",
+    // width: windowWidth-50,
+    height: 80,
+    borderRadius: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "black",
+    // position: "absolute",
+    // marginTop: 240,
+    marginLeft: 20
   },
   textContainer: {
     width: 400,
@@ -103,6 +115,6 @@ const styles = StyleSheet.create({
   imgContainer: {
     // width: windowWidth,
     height: windowHeight,
-    position: "absolute",
+    // position: "absolute",
   },
 });
