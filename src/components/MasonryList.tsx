@@ -71,10 +71,6 @@ const MasonryList = ({
 export default MasonryList;
 
 const styles = StyleSheet.create({
-  container: {
-    //   marginTop:windowHeight/2
-    // backgroundColor:'black'
-  },
   img: {
     width: windowWidth / 2 - 10,
     height: 300,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   StyleSheet,
   View,
@@ -6,22 +6,32 @@ import {
   Image,
   Pressable,
   PressableProps,
-} from 'react-native';
-import {windowWidth} from '../constants/Layout';
+} from "react-native";
+import TouchableScale from "react-native-touchable-scale";
+import { windowWidth } from "../constants/Layout";
 
 type ProfileProps = PressableProps & {
   item?: any;
   style?: any;
 };
 
-const Profile = ({item, style, ...props}: ProfileProps) => {
+const Profile = ({ item, style, ...props }: ProfileProps) => {
   return (
-    <Pressable style={[style, styles.container]} {...props}>
+    <TouchableScale
+      activeScale={0.8}
+      pressInTension={20}
+      pressInFriction={0.7}
+      pressOutTension={1}
+      pressOutFriction={1}
+      useNativeDriver
+      style={[style, styles.container]}
+      {...props}
+    >
       <View style={styles.topContainer}>
-        <Image source={{uri: item.icon}} style={styles.icon} />
+        <Image source={{ uri: item.icon }} style={styles.icon} />
         <View style={styles.rightContainer}>
           <Text style={styles.name}>
-            {item.first_name + '  ' + item.last_name}
+            {item.first_name + "  " + item.last_name}
           </Text>
           <Text style={styles.email}>{item.email}</Text>
         </View>
@@ -40,7 +50,7 @@ const Profile = ({item, style, ...props}: ProfileProps) => {
           <Text style={styles.info}>Following</Text>
         </View>
       </View>
-    </Pressable>
+    </TouchableScale>
   );
 };
 
@@ -48,9 +58,10 @@ export default Profile;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     marginHorizontal: 13,
     height: 160,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     padding: 20,
     width: windowWidth - 26,
     borderRadius: 6,
@@ -59,11 +70,11 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
-    borderColor: 'grey',
+    borderColor: "grey",
     borderWidth: 1,
   },
   topContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     padding: 5,
   },
   rightContainer: {
@@ -71,24 +82,24 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   email: {
     fontSize: 13,
-    color: 'grey',
+    color: "grey",
   },
   bottomContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginHorizontal: 13,
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 15,
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
   },
   bottomBlock: {
-    alignItems: 'center',
+    alignItems: "center",
   },
   number: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });

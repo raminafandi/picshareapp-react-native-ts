@@ -48,7 +48,7 @@ ProfileScreen.sharedElements = (route) => {
     {
       id: `item.${item.id}.user`,
       animation: "move",
-      resize: "none",
+      resize: "move",
     },
   ];
 };

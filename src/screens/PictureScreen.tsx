@@ -8,7 +8,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const PictureScreen = ({ navigation, route }: any) => {
   const { item } = route.params;
-  console.log(item.image);
   return (
     <SafeAreaView style={styles.container}>
       <SharedElement id={`item.${item.id}.image2`}>

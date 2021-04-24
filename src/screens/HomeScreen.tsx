@@ -15,6 +15,7 @@ import Info from "../components/Info";
 import data from "../constants/data.json";
 import { SharedElement } from "react-navigation-shared-element";
 import { SafeAreaView } from "react-native-safe-area-context";
+import TouchableScale from "react-native-touchable-scale";
 
 const Home = ({ navigation }: any) => {
   const [hidden, setHidden] = React.useState(true);
