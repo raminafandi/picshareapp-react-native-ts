@@ -5,8 +5,6 @@ import {
   Text,
   Image,
   Pressable,
-  ScrollView,
-  ScrollViewProps,
   FlatListProps,
 } from "react-native";
 import { FlatList } from "react-native-gesture-handler";

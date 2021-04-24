@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  Pressable,
-  PressableProps,
-} from "react-native";
-import { windowWidth } from "../constants/Layout";
+import { StyleSheet, View, Text, PressableProps } from "react-native";
 
 type ProfileProps = PressableProps & {
   //   info?: any;

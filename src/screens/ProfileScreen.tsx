@@ -57,8 +57,6 @@ export default ProfileScreen;
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-
     backgroundColor: "black",
   },
   profileContainer: {
@@ -66,9 +64,7 @@ const styles = StyleSheet.create({
     top: -90,
   },
   imgContainer: {
-    // width: "100%",
     height: windowHeight / 3,
-    // position: "absolute",
   },
   masonryList: { marginTop: 90 },
 });

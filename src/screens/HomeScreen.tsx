@@ -11,11 +11,9 @@ import { windowWidth, windowHeight } from "../constants/Layout";
 import { Entypo } from "@expo/vector-icons";
 
 import Profile from "../components/Profile";
-import Info from "../components/Info";
 import data from "../constants/data.json";
 import { SharedElement } from "react-navigation-shared-element";
 import { SafeAreaView } from "react-native-safe-area-context";
-import TouchableScale from "react-native-touchable-scale";
 
 const Home = ({ navigation }: any) => {
   const [hidden, setHidden] = React.useState(true);
@@ -116,10 +114,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginHorizontal: 60,
     marginVertical: 10,
-    // alignItems: "center",
   },
   blockContainer: {
-    // alignSelf: "flex-start",
     width: windowWidth / 4.5,
     alignSelf: "center",
   },
@@ -138,7 +134,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "rgba(0,0,0,0.8)",
-    // position: "absolute",
     marginTop: 30,
     marginLeft: 20,
   },
@@ -146,8 +141,6 @@ const styles = StyleSheet.create({
     width: windowWidth - 50,
     height: 120,
     borderRadius: 15,
-    // alignItems: "center",
-    // justifyContent: "center",
     backgroundColor: "rgba(0,0,0,0.8)",
     marginLeft: 20,
   },
@@ -155,8 +148,6 @@ const styles = StyleSheet.create({
     width: 400,
   },
   imgContainer: {
-    // width: windowWidth,
     height: windowHeight,
-    // position: "absolute",
   },
 });

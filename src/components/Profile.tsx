@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  Pressable,
-  PressableProps,
-} from "react-native";
+import { StyleSheet, View, Text, Image, PressableProps } from "react-native";
 import TouchableScale from "react-native-touchable-scale";
 import { windowWidth } from "../constants/Layout";
 
