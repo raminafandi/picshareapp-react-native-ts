@@ -1,9 +1,9 @@
-# PicShare App
+# PicShare App - Expo(TypeScript)
 
-I inspired by https://dribbble.com/shots/5529409-Photography-Motion / www.youtube.com/watch?v=fiAdt9-wNJo&t and tried to create something like that using different animation libraries in React Native. I want to improve my animation skills in react native, so I hope it won't be last...
+I inspired by https://dribbble.com/shots/5529409-Photography-Motion / www.youtube.com/watch?v=fiAdt9-wNJo&t and tried to create something like that using different animation libraries in React Native. I have used Shared Element transition, Animatable and Touchable Scale in this project. 
 
 <p align="center">
-  <img alt="gif" src="./assets/project.gif" />
+  <img alt="gif" width=300  src="./assets/project.gif" />
 </p>
 
 ## Install & Build
