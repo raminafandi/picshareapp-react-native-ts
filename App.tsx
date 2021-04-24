@@ -6,6 +6,7 @@ import { StatusBar } from "expo-status-bar";
 
 import HomeScreen from "./src/screens/HomeScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
+import PictureScreen from "./src/screens/PictureScreen";
 
 const Stack = createSharedElementStackNavigator();
 
@@ -16,6 +17,7 @@ export default function App() {
       <Stack.Navigator mode="modal" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="Picture" component={PictureScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -16,7 +16,7 @@ const ProfileScreen = ({ navigation, route }: any) => {
           source={{ uri: item.images[0] }}
           style={[styles.imgContainer]}
           resizeMode={"cover"}
-          resizeMethod={"resize"}
+          // resizeMethod={"resize"}
         />
       </SharedElement>
       <SharedElement id={`item.${item.id}.user`}>
@@ -28,7 +28,11 @@ const ProfileScreen = ({ navigation, route }: any) => {
           }}
         />
       </SharedElement>
-      <MasonryList style={styles.masonryList} items={item.images} />
+      <MasonryList
+        style={styles.masonryList}
+        items={item.images}
+        navigation={navigation}
+      />
     </ScrollView>
   );
 };

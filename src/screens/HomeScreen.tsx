@@ -14,11 +14,12 @@ import Profile from "../components/Profile";
 import Info from "../components/Info";
 import data from "../constants/data.json";
 import { SharedElement } from "react-navigation-shared-element";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Home = ({ navigation }: any) => {
   const [hidden, setHidden] = React.useState(true);
   const renderItem = ({ item }: any) => (
-    <View style={styles.renderContainer}>
+    <SafeAreaView style={styles.renderContainer}>
       <SharedElement id={`item.${item.id}.image`}>
         <Image
           source={{ uri: item.images[0] }}
@@ -73,7 +74,7 @@ const Home = ({ navigation }: any) => {
           }}
         />
       </SharedElement>
-    </View>
+    </SafeAreaView>
   );
 
   return (

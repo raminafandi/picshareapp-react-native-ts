@@ -14,13 +14,20 @@ import { FlatList } from "react-native-gesture-handler";
 import * as Animatable from "react-native-animatable";
 
 import { windowWidth, windowHeight } from "../constants/Layout";
+import { SharedElement } from "react-navigation-shared-element";
 
 type MasonryListProps = FlatListProps & {
   items?: any;
   style?: any;
+  navigation?: any;
 };
 
-const MasonryList = ({ items, style, ...props }: MasonryListProps) => {
+const MasonryList = ({
+  items,
+  style,
+  navigation,
+  ...props
+}: MasonryListProps) => {
   return (
     <Animatable.View
       animation="fadeInUp"
@@ -35,7 +42,25 @@ const MasonryList = ({ items, style, ...props }: MasonryListProps) => {
         data={items}
         style={[style, styles.container]}
         renderItem={({ item, index }) => (
-          <Image key={index} style={styles.img} source={{ uri: item }} />
+          <Pressable
+            onPress={() => {
+              navigation.navigate("Picture", {
+                item: {
+                  id: index,
+                  image: item,
+                },
+              });
+            }}
+          >
+            <SharedElement id={`item.${index}.image2`}>
+              <Image
+                style={styles.img}
+                source={{ uri: item }}
+                resizeMode={"cover"}
+                resizeMethod={"resize"}
+              />
+            </SharedElement>
+          </Pressable>
         )}
         {...props}
       />
